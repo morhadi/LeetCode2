@@ -1,6 +1,4 @@
-bool sec (pair<int,int> a , pair<int,int> b){
-    return a.second > b.second ;
-}
+
     class Solution {
 public:
     vector<int> topKFrequent(vector<int>& n, int k) {
@@ -12,7 +10,7 @@ public:
         for(auto it : m){
             v.push_back(make_pair(it.first , it.second ));
         }
-        sort(v.begin(),v.end(),sec) ;
+        sort( v.begin() , v.end() , [] (const pair<int, int>& a, const pair<int, int>& b) { return a.second > b.second; } ) ;
         v.erase(v.begin()+k ,v.end());
         vector<int> v2;
         for(auto it2 : v){
