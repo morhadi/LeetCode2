@@ -1,13 +1,12 @@
 class Solution {
 public:
     void sortColors(vector<int>& n) {
-        int ns=n.size(),n1=0,n2=0,n0=0;
+        int ns=n.size();
         if(ns==1)
         return;
+        int a[3] = {0,0,0};
         for(int i=0;i<ns;i++){
-            if(n[i]==0) n0++;
-            else if(n[i]==1) n1++;
-            else n2++;
+            a[n[i]]++;
         }
         // vector<int> v(n0,0);
         // v.insert(v.end(),n1,1);
@@ -15,8 +14,8 @@ public:
         // n=v;
         // v.clear();
         n.clear();
-        n.insert(n.end(),n0,0);
-        n.insert(n.end(),n1,1);
-        n.insert(n.end(),n2,2);
+        n.insert(n.end(),a[0],0);
+        n.insert(n.end(),a[1],1);
+        n.insert(n.end(),a[2],2);
     }
 };
